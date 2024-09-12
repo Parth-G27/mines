@@ -1,18 +1,19 @@
 import "@/styles/globals.css";
 import Nav from "@/components/nav";
-// import Provider from "@components/Provider";
+import Provider from "@/components/Provider";
 // import { children } from 'react';
 
 export const metadata = {
-    title: 'Prompt Stage',
-    description: 'Explore & Share prompts'
+    title: 'Mines Game',
+    description: 'Grind Hard, Play Harder!'
+
 }
 
 const Rootlayout = ({children}) => {
   return (
     <html lang='en'>
         <body>
-            {/* <Provider> */}
+            <Provider>
     
             <div className='main'>
                 <div className='gradient'/>
@@ -23,7 +24,7 @@ const Rootlayout = ({children}) => {
                     {children}
                 </main>
 
-            {/* </Provider> */}
+            </Provider>
         </body>
 
     </html>

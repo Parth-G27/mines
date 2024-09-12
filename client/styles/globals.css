@@ -100,7 +100,7 @@
 }
 
 .head_text {
-  @apply mt-6 mb-6 text-5xl font-inter font-extrabold leading-[1.15] text-black sm:text-6xl;
+  @apply mt-6 mb-6 text-4xl font-inter font-extrabold leading-[1.15] text-black sm:text-6xl;
 }
 
 .purple_gradient {
