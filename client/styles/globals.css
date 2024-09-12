@@ -68,6 +68,14 @@
     top: 80px;
     opacity: 0.15;
   }
+
+  .grid {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  }
+  
+  .border-gray-700 {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+  }
   
   
 
@@ -87,7 +95,7 @@
 }
 
 .app {
-  @apply relative z-10 flex flex-col max-w-[85%] mx-auto sm:px-16 px-6;
+  @apply relative z-10 flex flex-col max-w-[85%] mx-auto sm:px-6 px-2;
 }
 
 .black_btn {
@@ -100,7 +108,7 @@
 }
 
 .head_text {
-  @apply mt-6 mb-6 text-4xl font-inter font-extrabold leading-[1.15] text-black sm:text-6xl;
+  @apply mt-6 mb-6 text-5xl font-inter font-bold text-black sm:text-5xl;
 }
 
 .purple_gradient {
@@ -108,7 +116,7 @@
 }
 
 .bluegreen_gradient {
-    @apply text-7xl font-geologica font-extrabold py-3 mb-1 bg-gradient-to-r  from-blue-500 via-[#038c65] to-green-500 bg-clip-text text-transparent;
+    @apply text-8xl font-geologica font-extrabold py-3 mb-1 bg-gradient-to-r  from-lime-400 via-[#11a401] to-lime-400 bg-clip-text text-transparent;
   }
 
 .orange_gradient {
@@ -163,11 +171,11 @@
 }
 
 .dropdown {
-  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
+  @apply absolute right-0 top-full mt-3 w-full p-4 rounded-lg min-w-[210px] flex flex-col gap-3 justify-end items-end  bg-opacity-85 shadow-lg backdrop-blur-md border border-black border-opacity-5;
 }
 
 .dropdown_link {
-  @apply text-sm font-inter text-gray-700 hover:text-gray-500 font-medium;
+  @apply text-xl font-medium text-gray-800 hover:text-black py-2 w-full text-right transition-transform transform hover:translate-x-[-5px] hover:text-black;
 }
 
 /* PromptCard Component */
@@ -190,3 +198,4 @@
 .flex-between {
   @apply flex justify-between items-center;
 }
+

@@ -1,12 +1,11 @@
 import "@/styles/globals.css";
 import Nav from "@/components/nav";
 import Provider from "@/components/Provider";
-// import { children } from 'react';
+import { children } from 'react';
 
 export const metadata = {
     title: 'Mines Game',
     description: 'Grind Hard, Play Harder!'
-
 }
 
 const Rootlayout = ({children}) => {
