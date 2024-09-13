@@ -5,7 +5,8 @@ import { FaGem, FaBomb } from "react-icons/fa";
 
 const GRID_SIZE = 5;
 const MINE_COUNT = 3;
-const clickSound = '/sounds/click.mp3';
+const gemSound = '/audio/gemsound.mp3';
+const mineSound = '/audio/minesound.wav';
 
 const Play = () => {
   const [grid, setGrid] = useState([]);
@@ -39,15 +40,19 @@ const Play = () => {
     const newGrid = [...grid];
     newGrid[index] = { ...newGrid[index], isRevealed: true };
 
-    const audio = new Audio(clickSound);
-    audio.play();
+    // const audio = new Audio(clickSound);
+    // audio.play();
 
     if (newGrid[index].isMine) {
+      const audio = new Audio(mineSound);
+      audio.play();
       newGrid.forEach((cell, idx) => {
         newGrid[idx] = { ...cell, isRevealed: true };
       });
       setGameOver(true);
     } else {
+      const audio = new Audio(gemSound);
+      audio.play();
       setScore(score + 10);
     }
 
