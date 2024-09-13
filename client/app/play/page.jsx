@@ -188,7 +188,7 @@ const Play = () => {
 
         {session && playerGames.length > 0 && (
           <div className="mt-8">
-            <h2 className="text-2xl font-bold mb-4">Your Recent 5 Games</h2>
+            <h2 className="text-2xl font-bold mb-4">Your Recent 5 Games Score:</h2>
             <ul className="space-y-2">
               {playerGames.slice(0, 5).map((game, index) => (
                 <li key={index} className="text-lg">
