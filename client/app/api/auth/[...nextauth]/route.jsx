@@ -9,11 +9,7 @@ export const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      authorization: {
-        params: {
-          redirect_uri: `${process.env.NEXTAUTH_URL}/api/auth/callback/google`
-        }
-      }
+      
     }),
   ],
   callbacks: {
@@ -39,7 +35,7 @@ export const authOptions = {
       return true;
     },
     async redirect({ url, baseUrl }) {
-      return baseUrl;
+      return url.startsWith(baseUrl) ? url : baseUrl;
     },
   },
 };
@@ -50,7 +46,6 @@ export const authOptions = {
 // Correctly handle GET and POST requests
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
-
 
 
 
