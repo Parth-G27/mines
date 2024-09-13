@@ -45,9 +45,6 @@ const Play = () => {
     const newGrid = [...grid];
     newGrid[index] = { ...newGrid[index], isRevealed: true };
 
-    // const audio = new Audio(clickSound);
-    // audio.play();
-
     if (newGrid[index].isMine) {
       const audio = new Audio(mineSound);
       audio.play();
@@ -93,7 +90,7 @@ const Play = () => {
 
   return (
     <div className="min-h-screen items-center justify-center">
-      <div className="flex flex-col min-w-full items-center bg-white p-8 rounded-3xl shadow-2xl">
+      <div className="flex flex-col min-w-full items-center bg-white p-8 rounded-3xl shadow-2xl mx-8 mb-8">
         <h1 className="text-7xl font-bold bg-gradient-to-r  from-lime-400 via-[#11a401] to-lime-400 bg-clip-text text-transparent my-8">
           Mine Rush
         </h1>
@@ -124,7 +121,7 @@ const Play = () => {
         )}
 
         <button
-          className="mt-8 px-8 py-4 bg-gradient-to-r from-emerald-400 to-blue-500 text-white text-xl font-bold rounded-full hover:from-emerald-500 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-400"
+          className="mt-8 px-8 py-4 bg-gradient-to-r from-emerald-400 to-green-500 text-white text-xl font-bold rounded-full hover:from-emerald-500 hover:to-green-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-400"
           onClick={initializeGrid}
         >
           New Game
