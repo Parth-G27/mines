@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import Nav from "@/components/nav";
-import Provider from "@/components/Provider";
+import Provider from "@/components/provider";
 import { children } from 'react';
 
 export const metadata = {
