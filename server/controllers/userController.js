@@ -10,6 +10,7 @@ export const createOrUpdateUser = async (req, res) => {
       // Update existing user
       user.name = name;
       user.image = image;
+      console.log("user updated", user.name);
       await user.save();
     } else {
       // Create new user
@@ -18,6 +19,7 @@ export const createOrUpdateUser = async (req, res) => {
         name,
         image,
       });
+      console.log("new user created", user);
       await user.save();
     }
 
