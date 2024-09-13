@@ -8,6 +8,8 @@ const GRID_SIZE = 5;
 const MINE_COUNT = 3;
 const gemSound = "/audio/gemsound.mp3";
 const mineSound = "/audio/minesound.wav";
+const backendUrl = process.env.NEXT_PUBLIC_API_KEY;
+
 
 const Play = () => {
   const [grid, setGrid] = useState([]);
@@ -98,7 +100,7 @@ const Play = () => {
     if (!session) return;
 
     try {
-      const response = await fetch('http://localhost:8000/api/games', {
+      const response = await fetch(`${backendUrl}/api/games`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -124,7 +126,7 @@ const Play = () => {
     if (!session) return;
 
     try {
-      const response = await fetch(`http://localhost:8000/api/games?email=${session.user.email}`);
+      const response = await fetch(`${backendUrl}/api/games?email=${session.user.email}`);
       if (!response.ok) {
         throw new Error('Failed to fetch player games');
       }
