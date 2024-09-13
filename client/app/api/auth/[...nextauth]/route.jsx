@@ -5,13 +5,33 @@ import GoogleProvider from "next-auth/providers/google";
 export const authOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID, 
+      clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
   callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      // Send user data to your Express backend
+      const response = await fetch('http://localhost:8000/api/auth/callback/google', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: user.email,
+          name: user.name,
+          image: user.image,
+        }),
+      });
+
+      if (!response.ok) {
+        console.error('Failed to create/update user in backend');
+        return false;
+      }
+
+      return true;
+    },
     async redirect({ url, baseUrl }) {
-      // This callback ensures that you redirect to the correct base URL
       return url.startsWith(baseUrl) ? url : baseUrl;
     },
   },
@@ -23,8 +43,6 @@ export const authOptions = {
 // Correctly handle GET and POST requests
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
-
-////
 
 
 

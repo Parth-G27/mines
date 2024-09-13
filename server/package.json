@@ -1,8 +1,9 @@
 {
   "name": "minesbackend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend for Mines Game",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
