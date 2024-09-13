@@ -5,7 +5,7 @@ import { children } from 'react';
 
 export const metadata = {
     title: 'Mines Game',
-    description: 'Grind Hard, Play Harder!'
+    description: 'Risk the Mines, Reap the Rewards! 🎮'
 }
 
 const Rootlayout = ({children}) => {
