@@ -5,7 +5,7 @@ import { FaGem, FaBomb } from "react-icons/fa";
 
 const GRID_SIZE = 5;
 const MINE_COUNT = 3;
-const clickSound = "./select.mp3";  // Path to sound file
+const clickSound = '/sounds/click.mp3';
 
 const Play = () => {
   const [grid, setGrid] = useState([]);
@@ -39,12 +39,10 @@ const Play = () => {
     const newGrid = [...grid];
     newGrid[index] = { ...newGrid[index], isRevealed: true };
 
-    // Play click sound on each box click
     const audio = new Audio(clickSound);
     audio.play();
 
     if (newGrid[index].isMine) {
-      // If a mine is clicked, reveal all boxes and end the game
       newGrid.forEach((cell, idx) => {
         newGrid[idx] = { ...cell, isRevealed: true };
       });
@@ -60,21 +58,21 @@ const Play = () => {
     let cellContent;
     if (cell.isRevealed) {
       cellContent = cell.isMine ? (
-        <FaBomb className="w-8 h-8 text-red-500" />  // FaBomb for mines
+        <FaBomb className="w-10 h-10 text-red-500" />
       ) : (
-        <FaGem className="w-8 h-8 text-green-400" />  // FaGem for gems
+        <FaGem className="w-10 h-10 text-emerald-400" />
       );
     }
 
     return (
       <div
         key={index}
-        className={`w-16 h-16 border-2 border-gray-700 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 ${
+        className={`w-20 h-20 border-2 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 transform hover:scale-105 ${
           cell.isRevealed
             ? cell.isMine
-              ? 'bg-red-200'
-              : 'bg-green-200'
-            : 'bg-gray-800 hover:bg-gray-700'
+              ? 'bg-red-100 border-red-300'
+              : 'bg-emerald-100 border-emerald-300'
+            : 'bg-white border-gray-200 hover:bg-gray-50 hover:border-gray-300 shadow-md'
         }`}
         onClick={() => handleCellClick(index)}
       >
@@ -84,23 +82,25 @@ const Play = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold text-white mb-8">Mines</h1>
-      <div className="mb-4 text-white text-xl">Score: {score}</div>
-      <div className="grid grid-cols-5 gap-2 bg-gray-800 p-4 rounded-xl shadow-lg">
-        {grid.map((cell, index) => renderCell(cell, index))}
-      </div>
-      {gameOver && (
-        <div className="mt-8 text-white text-2xl">
-          Game Over! Your score: {score}
+    <div className="min-h-screen items-center justify-center">
+      <div className="flex flex-col min-w-full items-center bg-white p-8 rounded-3xl shadow-2xl">
+        <h1 className="text-7xl font-bold bg-gradient-to-r  from-lime-400 via-[#11a401] to-lime-400 bg-clip-text text-transparent my-8">Mine Rush</h1>
+        <div className="mb-6 text-gray-700 text-2xl font-semibold">Score: {score}</div>
+        <div className="grid grid-cols-5 gap-4 bg-gray-100 p-6 rounded-2xl shadow-inner">
+          {grid.map((cell, index) => renderCell(cell, index))}
         </div>
-      )}
-      <button
-        className="mt-8 px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors duration-300"
-        onClick={initializeGrid}
-      >
-        New Game
-      </button>
+        {gameOver && (
+          <div className="mt-8 text-gray-800 text-2xl font-bold animate-bounce">
+            Game Over! Your score: {score}
+          </div>
+        )}
+        <button
+          className="mt-8 px-8 py-4 bg-gradient-to-r from-emerald-400 to-blue-500 text-white text-xl font-bold rounded-full hover:from-emerald-500 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-400"
+          onClick={initializeGrid}
+        >
+          New Game
+        </button>
+      </div>
     </div>
   );
 };
