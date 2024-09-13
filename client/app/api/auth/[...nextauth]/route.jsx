@@ -2,6 +2,8 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 // provider is provider by which I have signed-in the user into my application
 
+const backendUrl = process.env.NEXT_PUBLIC_API_KEY;
+
 export const authOptions = {
   providers: [
     GoogleProvider({
@@ -12,7 +14,7 @@ export const authOptions = {
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       // Send user data to your Express backend
-      const response = await fetch('http://localhost:8000/api/auth/callback/google', {
+      const response = await fetch(`${backendUrl}/api/auth/callback/google`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
