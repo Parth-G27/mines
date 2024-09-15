@@ -9,10 +9,17 @@ const highestScoreComp = () => {
     const [highscore, sethighscore] = useState(0);
     useEffect(() => {
       if(session){
-        console.log("session is true.... for the high comp ")
+        console.log("session is true.... for the high comp ");
+        getHighestScore();
       }
     
     }, [session])
+
+    const getHighestScore = async () => {
+        let response = await apiHighestScore();
+        sethighscore(response.data);
+        console.log(response.data);
+    }
     
   return (
     <>
