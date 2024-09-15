@@ -10,7 +10,3 @@ router.get('/api/games', getPlayerGames);
 router.get('/api/highestscore', highestScore);
 
 export default router;
-
-
-
-
