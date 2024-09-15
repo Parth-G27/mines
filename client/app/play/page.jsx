@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 import { FaGem, FaBomb } from "react-icons/fa";
 import { useSession, signIn, signOut } from "next-auth/react";
+import HighestScoreCompo from "@/components/highestScoreComp";
 
 const GRID_SIZE = 5;
 const MINE_COUNT = 3;
 const gemSound = "/audio/gemsound.mp3";
 const mineSound = "/audio/minesound.wav";
 const backendUrl = process.env.NEXT_PUBLIC_API_KEY;
-
 
 const Play = () => {
   const [grid, setGrid] = useState([]);
@@ -59,7 +59,6 @@ const Play = () => {
       });
       saveGame();
       setGameOver(true);
-
     } else {
       const audio = new Audio(gemSound);
       audio.play();
@@ -101,9 +100,9 @@ const Play = () => {
 
     try {
       const response = await fetch(`${backendUrl}/api/games`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email: session.user.email,
@@ -112,13 +111,13 @@ const Play = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to save game');
+        throw new Error("Failed to save game");
       }
 
-      console.log('Game saved successfully');
+      console.log("Game saved successfully");
       fetchPlayerGames(); // Refresh the player's games list
     } catch (error) {
-      console.error('Error saving game:', error);
+      console.error("Error saving game:", error);
     }
   };
 
@@ -126,15 +125,17 @@ const Play = () => {
     if (!session) return;
 
     try {
-      const response = await fetch(`${backendUrl}/api/games?email=${session.user.email}`);
+      const response = await fetch(
+        `${backendUrl}/api/games?email=${session.user.email}`
+      );
       if (!response.ok) {
-        throw new Error('Failed to fetch player games');
+        throw new Error("Failed to fetch player games");
       }
 
       const data = await response.json();
       setPlayerGames(data.games);
     } catch (error) {
-      console.error('Error fetching player games:', error);
+      console.error("Error fetching player games:", error);
     }
   };
 
@@ -185,19 +186,37 @@ const Play = () => {
             Save Game
           </button>
         )} */}
+        {/* <span>{session ? (<span>Hi sesssion true</span>) : (<span>session false</span>)} </span> */}
 
         {session && playerGames.length > 0 && (
-          <div className="mt-8">
-            <h2 className="text-2xl font-bold mb-4">Your Recent 5 Games Score:</h2>
-            <ul className="space-y-2">
+          
+          <div className="mt-8 w-[50%] bg-white p-6 rounded-lg shadow-md">
+            <center>
+            <h2 className="text-3xl font-semibold text-green-600 mb-6">
+              Your Recent 5 Games
+            </h2>
+            </center>
+            <ul className="space-y-4">
               {playerGames.slice(0, 5).map((game, index) => (
-                <li key={index} className="text-lg">
-                  Score: {game.score} - Date: {new Date(game.date).toLocaleDateString()}
+                <li
+                  key={index}
+                  className="flex items-center justify-between bg-gradient-to-r from-green-100 to-emerald-50 p-4 rounded-md shadow-sm transition-transform transform hover:scale-105"
+                >
+                  <span className="text-xl font-semibold text-green-700">
+                    Score: {game.score}
+                  </span>
+                  <span className="text-base font-medium text-gray-500">
+                    {new Date(game.date).toLocaleDateString()}
+                  </span>
                 </li>
               ))}
             </ul>
           </div>
         )}
+
+        <HighestScoreCompo/>
+        
+        
       </div>
     </div>
   );
