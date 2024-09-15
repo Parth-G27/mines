@@ -2,7 +2,7 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { apiHighestScore } from '@/app/api/highestScore/route';
+import { highestScore } from '@/app/api/highestScore/route';
 
 const highestScoreComp = () => {
     const { data: session, status } = useSession();
@@ -16,9 +16,9 @@ const highestScoreComp = () => {
     }, [session])
 
     const getHighestScore = async () => {
-        let response = await apiHighestScore();
-        sethighscore(response.data);
-        console.log(response.data);
+        let response = await highestScore(session);
+        sethighscore(response);
+        console.log("resp"+response);
     }
     
   return (

@@ -6,7 +6,7 @@ export const highestScore = async (session) => {
     try {
         const backend = process.env.NEXT_PUBLIC_API_KEY;
         
-        return await axios.get(`${backend}/api/highestscore`) 
+        return await 3;
     } catch (error) {
         console.log("Error while calling get highest API", error);
     }
