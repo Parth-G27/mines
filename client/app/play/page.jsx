@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { FaGem, FaBomb } from "react-icons/fa";
 import { useSession, signIn, signOut } from "next-auth/react";
 import HighestScoreCompo from "@/components/highestScoreComp";
+import Link from "next/link";
 
 const GRID_SIZE = 5;
 const MINE_COUNT = 3;
@@ -141,7 +142,7 @@ const Play = () => {
 
   return (
     <div className="min-h-screen items-center justify-center">
-      <div className="flex flex-col min-w-full items-center bg-white p-8 rounded-3xl shadow-2xl mx-8 mb-8">
+      <div className="flex flex-col min-w-full items-center bg-white p-8 rounded-3xl shadow-2xl mx-8 mb-24">
         <h1 className="text-7xl font-bold bg-gradient-to-r from-lime-400 via-[#11a401] to-lime-400 bg-clip-text text-transparent my-8">
           Mine Rush
         </h1>
@@ -178,23 +179,12 @@ const Play = () => {
           New Game
         </button>
 
-        {/* {gameOver && session && (
-          <button
-            className="mt-4 px-8 py-4 bg-gradient-to-r from-blue-400 to-blue-500 text-white text-xl font-bold rounded-full hover:from-blue-500 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
-            onClick={saveGame}
-          >
-            Save Game
-          </button>
-        )} */}
-        {/* <span>{session ? (<span>Hi sesssion true</span>) : (<span>session false</span>)} </span> */}
-
         {session && playerGames.length > 0 && (
-          
           <div className="mt-8 w-[50%] bg-white p-6 rounded-lg shadow-md">
             <center>
-            <h2 className="text-3xl font-semibold text-green-600 mb-6">
-              Your Recent 5 Games
-            </h2>
+              <h2 className="text-3xl font-semibold text-green-600 mb-6">
+                Your Recent 5 Games
+              </h2>
             </center>
             <ul className="space-y-4">
               {playerGames.slice(0, 5).map((game, index) => (
@@ -214,9 +204,21 @@ const Play = () => {
           </div>
         )}
 
-        <HighestScoreCompo/>
-        
-        
+        <HighestScoreCompo />
+
+        <div className="flex flex-row justify-end items-start mt-4 w-full">
+  <Link
+    href="/leaderboard"
+    className="relative px-5 py-2 text-lg font-semibold text-white bg-gradient-to-r from-green-500 to-emerald-500 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 hover:from-lime-500 hover:to-green-400 focus:outline-none focus:ring-4 focus:ring-green-400"
+  >
+    <span className="relative z-10">Leaderboard</span>
+    
+    {/* Glowing effect */}
+    {/* <span className="absolute inset-0 rounded-full bg-gradient-to-r from-green-300 via-green-400 to-emerald-500 blur-lg opacity-60 hover:opacity-80 transition-opacity duration-300"></span> */}
+  </Link>
+</div>
+
+
       </div>
     </div>
   );
