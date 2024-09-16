@@ -1,11 +1,28 @@
 "use client";
 
 import React from 'react';
+import { useState,useEffect } from 'react';
 import { useSession } from "next-auth/react";
 import Image from 'next/image';
+import { highestScore } from "@/app/api/highestScore/route";
+
 
 const Profile = () => {
   const { data: session, status } = useSession();
+  const [highscore, setHighscore] = useState(0);
+
+  useEffect(() => {
+    if (session) {
+      getHighestScore();
+    }
+  }, [session]);
+
+  const getHighestScore = async () => {
+    let response = await highestScore(session);
+    if (response.data.highestScore) {
+      setHighscore(response.data.highestScore);
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-start justify-center pt-20">
@@ -37,7 +54,7 @@ const Profile = () => {
 
         <p className="text-3xl font-semibold text-green-800 mb-7">
         
-          High Score : <span className='text-green-600'>{}</span>
+          High Score : <span className='text-green-600'>{highscore}</span>
         </p>
 
         <p className="text-3xl font-semibold text-green-800 mb-7">
