@@ -21,10 +21,10 @@ const Leaderboard = () => {
 
   return (
     <section className="min-h-screen p-3">
-      <h1 className="text-5xl font-medium text-center">
+      <h1 className="head_text_2 text-center">
         <br className="max-md:hidden" />
-        <div className="bluegreen_gradient text-center">Mines Rush</div>
-        <div className="my-10">Top Players, Big Wins: The Mines Rush Hall of Fame!</div>
+        <div className="bluegreen_gradient_2 text-center mb-5">Mines Rush</div>
+        Top Players, Big Wins: The Mines Rush Hall of Fame!
       </h1>
 
       <div className="flex flex-col items-center justify-center gap-8">
@@ -39,12 +39,13 @@ const Leaderboard = () => {
                   src={player.image}
                   alt={player.name}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                   className="rounded-full border-2 border-green-500 object-cover"
                   loading="lazy"
                 />
               </div>
               <div className="flex-grow">
-                <h2 className="text-lg font-semibold text-green-900">
+                <h2 className="text-lg font-bold text-green-900">
                   {player.name}
                 </h2>
               </div>

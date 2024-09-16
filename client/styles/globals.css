@@ -111,7 +111,7 @@
   @apply mt-6 mb-6 text-5xl font-inter font-bold text-black sm:text-5xl;
 }
 .head_text_2 {
-  @apply mt-1 mb-1 text-5xl font-inter font-bold text-black sm:text-5xl;
+  @apply  mb-20 text-5xl font-inter font-bold text-black sm:text-5xl;
 }
 
 .purple_gradient {
@@ -120,6 +120,10 @@
 
 .bluegreen_gradient {
     @apply text-8xl font-geologica font-extrabold py-3 mb-1 bg-gradient-to-r  from-lime-400 via-[#11a401] to-lime-400 bg-clip-text text-transparent;
+  }
+
+  .bluegreen_gradient_2 {
+    @apply text-8xl font-geologica font-extrabold py-3 mb-5 bg-gradient-to-r  from-lime-400 via-[#11a401] to-lime-400 bg-clip-text text-transparent;
   }
 
 .orange_gradient {
