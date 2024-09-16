@@ -16,15 +16,13 @@ const highestScoreComp = () => {
 
     const getHighestScore = async () => {
         let response = await highestScore(session);
-        sethighscore(response.data);
-        // console.log(" this is the resp"+response.data);
-        console.log("this is the highscore", highscore);
+        sethighscore(response.data.highestScore);
     }
     
   return (
     <>
     <div className='my-4'>
-        Highest Score :  {highscore}
+        Highest Score :   {highscore}
     </div>
     </>
   )
