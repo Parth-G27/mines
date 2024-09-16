@@ -10,6 +10,7 @@ import { highestScore } from "@/app/api/highestScore/route";
 const Profile = () => {
   const { data: session, status } = useSession();
   const [highscore, setHighscore] = useState(0);
+  
 
   useEffect(() => {
     if (session) {
@@ -57,10 +58,10 @@ const Profile = () => {
           High Score : <span className='text-green-600'>{highscore}</span>
         </p>
 
-        <p className="text-3xl font-semibold text-green-800 mb-7">
+        {/* <p className="text-3xl font-semibold text-green-800 mb-7">
         
           Leaderboard Rank : <span className='text-green-600'>{}</span>
-        </p>
+        </p> */}
         
       </div>
     </div>
