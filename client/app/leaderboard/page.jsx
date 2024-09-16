@@ -32,21 +32,20 @@ const Leaderboard = () => {
           leaderboardData.map((player, index) => (
             <div
               key={index}
-              className="w-full max-w-2xl bg-white shadow-lg rounded-xl p-5 flex items-center gap-4 transition transform hover:scale-105 duration-300"
+              className="w-full max-w-3xl bg-white shadow-lg rounded-xl p-5 flex items-center gap-4 transition transform hover:scale-105 duration-300"
             >
               <div className="relative w-16 h-16">
                 <Image
                   src={player.image}
                   alt={player.name}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                   className="rounded-full border-2 border-green-500 object-cover"
                   loading="lazy"
                 />
               </div>
               <div className="flex-grow">
-                <h2 className="text-lg font-bold text-green-900">
-                  {player.name}
+                <h2 className="text-2xl font-semibold text-green-900">
+                {player.name.split(" ")[0]}{Array.from({ length: player.name.split(" ")[1].length }, (_, i) => <span key={i}>*</span>)}
                 </h2>
               </div>
               <div className="text-green-800 font-bold text-xl">

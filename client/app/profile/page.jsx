@@ -1,16 +1,14 @@
 "use client";
 
-import React from 'react';
-import { useState,useEffect } from 'react';
+import React from "react";
+import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import Image from 'next/image';
+import Image from "next/image";
 import { highestScore } from "@/app/api/highestScore/route";
-
 
 const Profile = () => {
   const { data: session, status } = useSession();
   const [highscore, setHighscore] = useState(0);
-  
 
   useEffect(() => {
     if (session) {
@@ -28,7 +26,6 @@ const Profile = () => {
   return (
     <div className="min-h-screen flex items-start justify-center pt-20">
       <div className="flex flex-col max-w-2xl w-full bg-white p-10 rounded-3xl shadow-xl">
-        
         {/* Name and Image Side by Side */}
         <div className="flex items-center space-x-6 mb-7">
           {/* Profile Image */}
@@ -49,20 +46,22 @@ const Profile = () => {
 
         {/* Email */}
         <p className="text-3xl font-semibold text-green-800 mb-7">
-        
-          Email : <span className='text-green-600'>{session ? session.user?.email : "No email available"}</span>
+          Email :{" "}
+          <span className="text-green-600">
+            {session ? session.user?.email : "No email available"}
+          </span>
         </p>
 
         <p className="text-3xl font-semibold text-green-800 mb-7">
-        
-          High Score : <span className='text-green-600'>{highscore}</span>
+          High Score : <span className="text-green-600">{highscore}</span>
         </p>
+
+        
 
         {/* <p className="text-3xl font-semibold text-green-800 mb-7">
         
           Leaderboard Rank : <span className='text-green-600'>{}</span>
         </p> */}
-        
       </div>
     </div>
   );
