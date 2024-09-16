@@ -2,7 +2,7 @@ import Game from '../models/Game.js';
 import User from '../models/User.js';
 
 export const highestScore = async (req, res) => {
-    const { email } = req.body;
+    const { email } = req.query;
   
     try {
         console.log("i am in highestScore in backend",email);

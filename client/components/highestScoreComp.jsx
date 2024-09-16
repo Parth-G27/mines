@@ -9,7 +9,6 @@ const highestScoreComp = () => {
     const [highscore, sethighscore] = useState(0);
     useEffect(() => {
       if(session){
-        console.log("session is true.... for the high comp ");
         getHighestScore();
       }
     
@@ -17,14 +16,15 @@ const highestScoreComp = () => {
 
     const getHighestScore = async () => {
         let response = await highestScore(session);
-        sethighscore(response);
-        console.log("resp"+response);
+        sethighscore(response.data);
+        // console.log(" this is the resp"+response.data);
+        console.log("this is the highscore", highscore);
     }
     
   return (
     <>
     <div className='my-4'>
-        Highest Score : {highscore}
+        Highest Score :  {highscore}
     </div>
     </>
   )
