@@ -23,7 +23,9 @@ const Leaderboard = () => {
     <section className="min-h-screen p-3">
       <h1 className="head_text_2 text-center">
         <br className="max-md:hidden" />
-        <div className="bluegreen_gradient_2 text-center mb-5">Mines Rush</div>
+        <div className="bluegreen_gradient_2 text-center mb-5">
+          Mines Rush
+        </div>
         Top Players, Big Wins: The Mines Rush Hall of Fame!
       </h1>
 
@@ -32,23 +34,30 @@ const Leaderboard = () => {
           leaderboardData.map((player, index) => (
             <div
               key={index}
-              className="w-full max-w-3xl bg-white shadow-lg rounded-xl p-5 flex items-center gap-4 transition transform hover:scale-105 duration-300"
+              className="w-full max-w-3xl bg-white shadow-lg rounded-xl p-5 flex flex-col sm:flex-row items-center gap-4 transition transform hover:scale-105 duration-300"
             >
-              <div className="relative w-16 h-16">
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20">
                 <Image
                   src={player.image}
                   alt={player.name}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Sizes prop for image optimization
                   className="rounded-full border-2 border-green-500 object-cover"
                   loading="lazy"
                 />
               </div>
-              <div className="flex-grow">
+              <div className="flex-grow text-center sm:text-left">
+                <h3 className="font-geologica font-semibold text-green-950">
+                  Rank {index + 1}
+                </h3>
                 <h2 className="text-2xl font-semibold text-green-900">
-                {player.name.split(" ")[0]}{Array.from({ length: player.name.split(" ")[1].length }, (_, i) => <span key={i}>*</span>)}
+                  {player.name.split(" ")[0]}
+                  {Array.from({ length: player.name.split(" ")[1].length }, (_, i) => (
+                    <span key={i}>*</span>
+                  ))}
                 </h2>
               </div>
-              <div className="text-green-800 font-bold text-xl">
+              <div className="text-green-800 font-bold text-xl sm:text-right">
                 Highest Score: {player.highestScore}
               </div>
             </div>

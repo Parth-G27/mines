@@ -14,7 +14,7 @@ export const leaderBoardController = async (req, res) => {
         $sort: { highestScore: -1 }
       },
       {
-        $limit: 5
+        $limit: 10
       },
       {
         $lookup: {
