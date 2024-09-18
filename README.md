@@ -1,10 +1,10 @@
-# Mine Rush 💎💥
+# Mine Rush 💎💣
 
 Discover **Mine Rush**—where classic puzzle-solving meets modern innovation. A Mines Game with sleek, minimalist design and fluid interactions that will keep you on your toes. Built using cutting-edge tech like Next.js and Tailwind CSS, Express.js, and MongoDB, redefines the challenge, creating an immersive experience that blends nostalgia with modern competition. Ready to outsmart the grid and conquer the mines? Dive into the rush today!
 
 Players can sign in, track their progress, and climb the live leaderboard. With responsive design and immersive sounds, Mine Rush offers a fresh take on minesweeper that’s both fun and challenging.
 
-This **open-source project** is more than just a game – it’s a collaborative effort to push the boundaries of what a minesweeper game can be. Join us in building something truly unique! [PLAY NOW!](https://mines-game-app.vercel.app/)
+This **open-source project** is more than just a game – it’s a collaborative effort to push the boundaries of what a minesweeper game can be. Join us in building something truly unique! [PLAY NOW 💎](https://mines-game-app.vercel.app/)
   
 
 ## Table of Contents
@@ -33,7 +33,7 @@ This **open-source project** is more than just a game – it’s a collaborative
 - **Responsive Design**: Fully responsive web application built with TailwindCSS.
 
 ## Demo
-#### **LIVE AT** [https://mines-game-app.vercel.app/](https://mines-game-app.vercel.app/)
+### **LIVE AT** [https://mines-game-app.vercel.app/](https://mines-game-app.vercel.app/)
 The application (both client & server) is currently deployed on vercel using the free hosting which 
 The frontend is hosted on https://mines-game-app.vercel.app/ and the backend is hosted on https://mines-backend.vercel.app/ using the same
 
