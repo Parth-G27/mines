@@ -166,7 +166,7 @@ const Play = () => {
           </div>
         ) : (
           <div className="mt-5 md:mt-7 mb-3 text-gray-700 text-2xl md:text-4xl font-bold">
-            Your Score: {score}
+            Your Score : {score} 
           </div>
         )}
 
