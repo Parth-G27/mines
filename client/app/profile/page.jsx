@@ -24,10 +24,10 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-start justify-center pt-20">
-      <div className="flex flex-col max-w-2xl w-full bg-white p-10 rounded-3xl shadow-xl">
+    <div className="min-h-screen flex items-start justify-center pt-20 px-4 md:px-0">
+      <div className="flex flex-col max-w-2xl w-full bg-white p-6 md:p-10 rounded-3xl shadow-xl">
         {/* Name and Image Side by Side */}
-        <div className="flex items-center space-x-6 mb-7">
+        <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 mb-7">
           {/* Profile Image */}
           {session && session.user?.image && (
             <Image
@@ -39,29 +39,22 @@ const Profile = () => {
             />
           )}
           {/* Name */}
-          <h1 className="text-4xl font-bold text-green-700">
+          <h1 className="text-2xl md:text-4xl font-bold text-green-700 text-center md:text-left">
             {session ? session.user?.name : "Anonymous"}
           </h1>
         </div>
 
         {/* Email */}
-        <p className="text-3xl font-semibold text-green-800 mb-7">
-          Email :{" "}
+        <p className="text-xl md:text-3xl font-semibold text-green-800 mb-5 md:mb-7 text-center md:text-left">
+          Email:{" "}
           <span className="text-green-600">
             {session ? session.user?.email : "No email available"}
           </span>
         </p>
 
-        <p className="text-3xl font-semibold text-green-800 mb-7">
-          High Score : <span className="text-green-600">{highscore}</span>
+        <p className="text-xl md:text-3xl font-semibold text-green-800 mb-5 md:mb-7 text-center md:text-left">
+          High Score: <span className="text-green-600">{highscore}</span>
         </p>
-
-        
-
-        {/* <p className="text-3xl font-semibold text-green-800 mb-7">
-        
-          Leaderboard Rank : <span className='text-green-600'>{}</span>
-        </p> */}
       </div>
     </div>
   );
