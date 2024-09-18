@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { FaGem, FaBomb } from "react-icons/fa";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import HighestScoreCompo from "@/components/highestScoreComp";
 import Link from "next/link";
 
@@ -17,7 +17,7 @@ const Play = () => {
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
   const [playerGames, setPlayerGames] = useState([]);
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   useEffect(() => {
     initializeGrid();
@@ -73,16 +73,16 @@ const Play = () => {
     let cellContent;
     if (cell.isRevealed) {
       cellContent = cell.isMine ? (
-        <FaBomb className="w-10 h-10 text-red-500" />
+        <FaBomb className="w-6 h-6 md:w-10 md:h-10 text-red-500" />
       ) : (
-        <FaGem className="w-10 h-10 text-emerald-400" />
+        <FaGem className="w-6 h-6 md:w-10 md:h-10 text-emerald-400" />
       );
     }
 
     return (
       <div
         key={index}
-        className={`w-20 h-20 border-2 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 transform hover:scale-105 ${
+        className={`w-12 h-12 md:w-20 md:h-20 border-2 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 transform hover:scale-105 ${
           cell.isRevealed
             ? cell.isMine
               ? "bg-red-100 border-red-300"
@@ -115,7 +115,6 @@ const Play = () => {
         throw new Error("Failed to save game");
       }
 
-      console.log("Game saved successfully");
       fetchPlayerGames(); // Refresh the player's games list
     } catch (error) {
       console.error("Error saving game:", error);
@@ -141,61 +140,61 @@ const Play = () => {
   };
 
   return (
-    <div className="min-h-screen items-center justify-center">
-      <div className="flex flex-col min-w-full items-center bg-white p-8 rounded-3xl shadow-2xl mx-8 mb-24">
-        <h1 className="text-7xl font-bold bg-gradient-to-r from-lime-400 via-[#11a401] to-lime-400 bg-clip-text text-transparent my-8">
+    <div className="min-h-screen flex flex-col items-center justify-center">
+      <div className="flex flex-col w-full md:max-w-6xl items-center bg-white p-6 md:p-8 rounded-3xl shadow-2xl mx-4 md:mx-8 mb-12">
+        <h1 className="text-4xl md:text-7xl font-bold bg-gradient-to-r from-lime-400 via-[#11a401] to-lime-400 bg-clip-text text-transparent my-6 md:my-8">
           Mine Rush
         </h1>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 md:space-x-4">
           {session ? (
             <>
-              <p className="relative text-xl mb-9 md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-teal-500 to-green-600 py-2 px-4 rounded-lg shadow-lg border transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <p className="text-lg md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-teal-500 to-green-600 py-2 px-4 rounded-lg shadow-lg">
                 Hi, {session.user?.name}
               </p>
             </>
-          ) : (
-            <></>
-          )}
+          ) : null}
         </div>
 
-        <div className="grid grid-cols-5 gap-4 bg-gray-100 p-6 rounded-2xl shadow-inner">
+    
+        <div className="grid grid-cols-5 gap-2 md:gap-4 bg-gray-100 p-4 md:p-6 rounded-2xl shadow-inner">
           {grid.map((cell, index) => renderCell(cell, index))}
         </div>
+
         {gameOver ? (
-          <div className="mt-7 mb-3 text-gray-800 text-4xl font-bold animate-bounce">
+          <div className="mt-5 md:mt-7 mb-3 text-gray-800 text-xl md:text-4xl font-bold animate-bounce">
             Game Over! Your score: {score}
           </div>
         ) : (
-          <div className="mt-7 mb-3 text-gray-700 text-4xl font-bold">
+          <div className="mt-5 md:mt-7 mb-3 text-gray-700 text-2xl md:text-4xl font-bold">
             Your Score: {score}
           </div>
         )}
 
         <button
-          className="mt-8 px-8 py-4 bg-gradient-to-r from-emerald-400 to-green-500 text-white text-xl font-bold rounded-full hover:from-emerald-500 hover:to-green-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-400"
+          className="mt-6 md:mt-8 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-emerald-400 to-green-500 text-white text-lg md:text-xl font-bold rounded-full hover:from-emerald-500 hover:to-green-600 transition-all duration-300 transform hover:scale-105"
           onClick={initializeGrid}
         >
           New Game
         </button>
 
         {session && playerGames.length > 0 && (
-          <div className="mt-8 w-[50%] bg-white p-6 rounded-lg shadow-md">
+          <div className="mt-8 w-full md:w-[50%] bg-white p-4 md:p-6 rounded-lg shadow-md">
             <center>
-              <h2 className="text-3xl font-semibold text-green-600 mb-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-green-600 mb-4 md:mb-6">
                 Your Recent 5 Games
               </h2>
             </center>
-            <ul className="space-y-4">
+            <ul className="space-y-3 md:space-y-4">
               {playerGames.slice(0, 5).map((game, index) => (
                 <li
                   key={index}
                   className="flex items-center justify-between bg-gradient-to-r from-green-100 to-emerald-50 p-4 rounded-md shadow-sm transition-transform transform hover:scale-105"
                 >
-                  <span className="text-xl font-semibold text-green-700">
+                  <span className="text-lg md:text-xl font-semibold text-green-700">
                     Score: {game.score}
                   </span>
-                  <span className="text-base font-medium text-gray-500">
+                  <span className="text-sm md:text-base font-medium text-gray-500">
                     {new Date(game.date).toLocaleDateString()}
                   </span>
                 </li>
@@ -207,18 +206,13 @@ const Play = () => {
         <HighestScoreCompo />
 
         <div className="flex flex-row justify-end items-start mt-4 w-full">
-  <Link
-    href="/leaderboard"
-    className="relative px-5 py-2 text-lg font-semibold text-white bg-gradient-to-r from-green-500 to-emerald-500 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 hover:from-lime-500 hover:to-green-400 focus:outline-none focus:ring-4 focus:ring-green-400"
-  >
-    <span className="relative z-10">Leaderboard</span>
-    
-    {/* Glowing effect */}
-    {/* <span className="absolute inset-0 rounded-full bg-gradient-to-r from-green-300 via-green-400 to-emerald-500 blur-lg opacity-60 hover:opacity-80 transition-opacity duration-300"></span> */}
-  </Link>
-</div>
-
-
+          <Link
+            href="/leaderboard"
+            className="relative px-4 md:px-5 py-2 md:py-3 text-lg md:text-xl font-semibold text-white bg-gradient-to-r from-green-500 to-emerald-500 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 md:hover:scale-110"
+          >
+            <span className="relative z-10">Leaderboard</span>
+          </Link>
+        </div>
       </div>
     </div>
   );

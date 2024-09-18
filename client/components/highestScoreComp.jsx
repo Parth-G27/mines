@@ -23,7 +23,8 @@ const HighestScoreComp = () => {
   return (
     <div className="w-full md:w-1/2 flex justify-center bg-white p-6 rounded-lg my-7 transition-transform transform hover:scale-105">
       {session && (
-        <h2 className="text-3xl font-bold text-gray-700 flex items-center">
+        <h2 className="text-xl md:text-3xl font-bold text-gray-700 flex items-center mb-4 md:mb-6r">
+          {/* */}
           <span className="mr-2">🏆</span> High Score:{" "}
           <span className="text-green-800 ml-2">{highscore}</span>
         </h2>

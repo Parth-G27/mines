@@ -40,7 +40,7 @@ const Profile = () => {
           )}
           {/* Name */}
           <h1 className="text-2xl md:text-4xl font-bold text-green-700 text-center md:text-left">
-            {session ? session.user?.name : "Anonymous"}
+            {session ? session.user?.name : "Guest Profile"}
           </h1>
         </div>
 
@@ -48,12 +48,12 @@ const Profile = () => {
         <p className="text-xl md:text-3xl font-semibold text-green-800 mb-5 md:mb-7 text-center md:text-left">
           Email:{" "}
           <span className="text-green-600">
-            {session ? session.user?.email : "No email available"}
+            {session ? session.user?.email : "Guest"}
           </span>
         </p>
 
         <p className="text-xl md:text-3xl font-semibold text-green-800 mb-5 md:mb-7 text-center md:text-left">
-          High Score: <span className="text-green-600">{highscore}</span>
+          High Score: <span className="text-green-600">{session ? highscore : "Guest high score"}</span>
         </p>
       </div>
     </div>
