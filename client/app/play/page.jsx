@@ -73,21 +73,21 @@ const Play = () => {
     let cellContent;
     if (cell.isRevealed) {
       cellContent = cell.isMine ? (
-        <FaBomb className="w-6 h-6 md:w-10 md:h-10 text-red-500" />
+        <FaBomb className="w-6 h-6 md:w-12 md:h-12 text-red-500" />
       ) : (
-        <FaGem className="w-6 h-6 md:w-10 md:h-10 text-emerald-400" />
+        <FaGem className="w-6 h-6 md:w-12 md:h-12 text-emerald-400" />
       );
     }
 
     return (
       <div
         key={index}
-        className={`w-12 h-12 md:w-20 md:h-20 border-2 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 transform hover:scale-105 ${
+        className={`w-12 h-12 md:w-24 md:h-24 border-2 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-300 transform hover:scale-105 ${
           cell.isRevealed
             ? cell.isMine
               ? "bg-red-100 border-red-300"
               : "bg-emerald-100 border-emerald-300"
-            : "bg-white border-gray-200 hover:bg-gray-50 hover:border-gray-300 shadow-md"
+            : "bg-white border-gray-200 hover:bg-gray-200 hover:border-gray-400 shadow-md"
         }`}
         onClick={() => handleCellClick(index)}
       >
@@ -149,14 +149,13 @@ const Play = () => {
         <div className="flex items-center space-x-2 md:space-x-4">
           {session ? (
             <>
-              <p className="text-lg md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-teal-500 to-green-600 py-2 px-4 rounded-lg shadow-lg">
+              <p className="text-lg md:text-2xl mb-10 font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-teal-500 to-green-600 py-2 px-4 rounded-lg shadow-lg  hover:scale-105 hover:shadow-xl">
                 Hi, {session.user?.name}
               </p>
             </>
           ) : null}
         </div>
 
-    
         <div className="grid grid-cols-5 gap-2 md:gap-4 bg-gray-100 p-4 md:p-6 rounded-2xl shadow-inner">
           {grid.map((cell, index) => renderCell(cell, index))}
         </div>
@@ -208,7 +207,7 @@ const Play = () => {
         <div className="flex flex-row justify-end items-start mt-4 w-full">
           <Link
             href="/leaderboard"
-            className="relative px-4 md:px-5 py-2 md:py-3 text-lg md:text-xl font-semibold text-white bg-gradient-to-r from-green-500 to-emerald-500 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 md:hover:scale-110"
+            className="relative px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 text-base sm:text-lg md:text-xl font-semibold text-white bg-gradient-to-r from-green-500 to-emerald-500 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 sm:hover:scale-105 md:hover:scale-110"
           >
             <span className="relative z-10">Leaderboard</span>
           </Link>
