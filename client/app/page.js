@@ -28,7 +28,7 @@ const Home = () => {
           </p>
           <div className="bg-green-50 rounded-2xl p-8 mt-20 shadow-lg">
             <p className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-lime-400 via-[#10a400] to-lime-400 bg-clip-text text-transparent animate-gradient">
-              JOIN MINES RUSH NOW
+              PLAY MINES RUSH NOW
             </p>
             <p className="text-lg md:text-xl text-gray-800 leading-relaxed">
               <span className="font-semibold">
