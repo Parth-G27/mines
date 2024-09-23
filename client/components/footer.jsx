@@ -2,7 +2,7 @@ import { FaGem, FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-white to-green-50 py-12 mt-20 border-t border-gray-400">
+    <footer className="bg-gradient-to-r from-white to-green-50 py-12  mt-1 md:mt-20 border-t border-gray-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col space-y-8 md:space-y-0 md:flex-row md:justify-between items-center">
           
@@ -16,7 +16,7 @@ export default function Footer() {
             <p className="text-sm text-gray-800 text-center md:text-left">Experience the excitement of high-stakes mining action!</p>
           </div>
           
-          <nav className="flex flex-wrap justify-center md:justify-end gap-6 text-2xl font-medium">
+          <nav className="flex flex-wrap justify-center md:justify-end gap-6 text-base md:text-2xl font-medium">
             <a href="/" className="text-gray-800 hover:text-gray-600 transition-colors duration-300 transform hover:scale-110">Home</a>
             <a href="/play" className="text-gray-800 hover:text-gray-600 transition-colors duration-300 transform hover:scale-110">Play</a>
             <a href="/leaderboard" className="text-gray-800 hover:text-gray-600 transition-colors duration-300 transform hover:scale-110">Leaderboard</a>
