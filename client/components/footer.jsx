@@ -2,15 +2,15 @@ import { FaGem, FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-gray-50 to-[#e9e9e9] py-12 mt-20 border-t border-gray-400">
+    <footer className="bg-gradient-to-r from-white to-green-50 py-12 mt-20 border-t border-gray-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col space-y-8 md:space-y-0 md:flex-row md:justify-between items-center">
           
           <div className="flex flex-col items-center md:items-start space-y-2">
             <a href="/">
             <div className="flex items-center space-x-2">
-              <FaGem className="text-3xl text-gray-800" />
-              <span className="text-2xl font-bold text-gray-800 tracking-wide">Mines Rush</span>
+              <FaGem className="text-4xl text-gray-800" />
+              <span className="text-3xl font-bold text-gray-800 tracking-wide">Mines Rush</span>
             </div>
             </a>
             <p className="text-sm text-gray-800 text-center md:text-left">Experience the excitement of high-stakes mining action!</p>
