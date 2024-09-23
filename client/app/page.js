@@ -42,7 +42,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="bg-gray-100 py-16 px-4 md:px-8 lg:px-16">
+      {/* <section className="bg-gray-100 py-16 px-4 md:px-8 lg:px-16">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-8 text-center">
             Features
@@ -99,7 +99,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </section>
   );
 };
