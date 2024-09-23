@@ -1,33 +1,44 @@
-// components/Footer1.jsx
+import { FaGem, FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 
-export default function Footer1() {
-    return (
-      <footer className="bg-green-50 text-black py-8 border-t border-green-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            {/* Brand / Title */}
+export default function Footer() {
+  return (
+    <footer className="bg-gradient-to-r from-gray-50 to-[#e9e9e9] py-12 mt-20 border-t border-gray-400">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col space-y-8 md:space-y-0 md:flex-row md:justify-between items-center">
+          
+          <div className="flex flex-col items-center md:items-start space-y-2">
+            <a href="/">
             <div className="flex items-center space-x-2">
-              <svg className="h-8 w-8 text-green-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L1 21h22L12 2zm0 3.45l7.12 13.55H4.88L12 5.45z" />
-              </svg>
-              <span className="text-xl font-bold text-green-700 tracking-wide">Mines Rush</span>
+              <FaGem className="text-3xl text-gray-800" />
+              <span className="text-2xl font-bold text-gray-800 tracking-wide">Mines Rush</span>
             </div>
-            
-            {/* Navigation Links */}
-            <nav className="space-x-6 text-lg font-medium">
-              <a href="#home" className="text-green-800 hover:text-green-600 transition-colors">Home</a>
-              <a href="#about" className="text-green-800 hover:text-green-600 transition-colors">About</a>
-              <a href="#games" className="text-green-800 hover:text-green-600 transition-colors">Games</a>
-              <a href="#contact" className="text-green-800 hover:text-green-600 transition-colors">Contact</a>
-            </nav>
-  
-            {/* Copyright */}
-            <div className="text-gray-500 text-sm">
+            </a>
+            <p className="text-sm text-gray-800 text-center md:text-left">Experience the excitement of high-stakes mining action!</p>
+          </div>
+          
+          <nav className="flex flex-wrap justify-center md:justify-end gap-6 text-2xl font-medium">
+            <a href="/" className="text-gray-800 hover:text-gray-600 transition-colors duration-300 transform hover:scale-110">Home</a>
+            <a href="/play" className="text-gray-800 hover:text-gray-600 transition-colors duration-300 transform hover:scale-110">Play</a>
+            <a href="/leaderboard" className="text-gray-800 hover:text-gray-600 transition-colors duration-300 transform hover:scale-110">Leaderboard</a>
+            <a href="/profile" className="text-gray-800 hover:text-gray-600 transition-colors duration-300 transform hover:scale-110">Profile</a>
+          </nav>
+
+          <div className="flex flex-col items-center md:items-end space-y-4">
+            <div className="flex space-x-4">
+              <a href="https://github.com/Parth-G27/mines" className="text-gray-800 hover:text-gray-900 transition-colors duration-300">
+                <FaGithub className="text-2xl" />
+              </a>
+             
+              <a href="https://www.linkedin.com/in/parthxbidari/" className="text-gray-800 hover:text-gray-900 transition-colors duration-300">
+                <FaLinkedin className="text-2xl" />
+              </a>
+            </div>
+            <div className="text-gray-800 text-sm">
               © 2024 Mines Rush. All rights reserved.
             </div>
           </div>
         </div>
-      </footer>
-    );
-  }
-  
+      </div>
+    </footer>
+  );
+}
