@@ -206,3 +206,14 @@
   @apply flex justify-between items-center;
 }
 
+
+body {
+  @apply bg-white text-black;
+}
+
+
+body.dark {
+  @apply bg-gray-900 text-white;
+}
+
+
