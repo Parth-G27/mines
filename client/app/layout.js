@@ -11,7 +11,7 @@ export const metadata = {
 const Rootlayout = ({children}) => {
   return (
     <html lang='en'>
-        <body>
+        <body className="darker">
             <Provider>
     
             <div className='main'>
