@@ -42,7 +42,7 @@ const Nav = () => {
     <nav className="flex-between w-full pt-11 mb-20">
       <Link href="/" className="flex gap-3">
         <FaGem style={{ fontSize: "36px" }} />
-        <p className="logo_text">Mines</p>
+        <p className="logo_text">Mines Rush</p>
       </Link>
 
       
