@@ -4,24 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FaGem } from "react-icons/fa";
+import Toggletheme from "./toggletheme";
 
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
-  //const userLoggedIn = true ;
-  const [darkMode, setDarkMode] = useState(false);
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropDown, setToggleDropDown] = useState(false);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    if (darkMode) {
-      document.documentElement.classList.remove('dark');
-    } else {
-      document.documentElement.classList.add('dark');
-    }
-  };
 
   useEffect(() => {
     const setUpProviders = async () => {
@@ -31,18 +22,14 @@ const Nav = () => {
     };
     setUpProviders();
 
-    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-      setDarkMode(true);
-    }
+  
   }, []);
 
   return (
-    <nav className="flex-between w-full pt-11 mb-20">
+    <nav className="flex-between w-full pt-11 mb-20 dark:bg-medium dark:text-white">
       <Link href="/" className="flex gap-3">
         <FaGem style={{ fontSize: "36px" }} />
-        <p className="logo_text">Mines</p>
+        <p className="logo_text dark:text-white">Mines</p>
       </Link>
 
 
@@ -50,7 +37,7 @@ const Nav = () => {
       {/* {alert("providers : "+providers)} */}
 
       {/* Desktop */}
-      <div className="sm:flex hidden">
+      <div className="sm:flex hidden dark:text-white">
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
             <Link href="/play" className="black_btn">
@@ -103,7 +90,7 @@ const Nav = () => {
             />
 
             {toggleDropDown && (
-              <div className="dropdown text-center">
+              <div className="dropdown text-center dark:text-white">
                 <Link
                   href="/profile"
                   className="dropdown_link"
@@ -148,21 +135,9 @@ const Nav = () => {
               ))}
           </>
         )}
+        
       </div>
-
-      <button
-        onClick={toggleDarkMode}
-        className="bg-gray-600 p-2 rounded-full focus:outline-none"
-        aria-label="Toggle Dark Mode"
-      >
-        {darkMode ? (
-          <span className="text-yellow-500 text-2xl">🌞</span> 
-        ) : (
-          <span className="text-white text-2xl">🌙</span> 
-        )}
-      </button>
-
-
+      <Toggletheme />
     </nav>
   );
 };
