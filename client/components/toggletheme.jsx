@@ -26,7 +26,7 @@ const Toggletheme = () => {
     
   return (
     <div
-    className="relative w-16 h--8 flex items-center dark:bg-gray-900 bg-teal-500 cursor-pointer rounded-full p-1"
+    className="relative w-16 h--8 flex items-center dark:bg-gray-900 bg-teal-501 cursor-pointer rounded-full p-1"
     onClick={() => setDarkMode(!darkMode)}
     >
         <IoMoonOutline className="text-white" size={18} />
