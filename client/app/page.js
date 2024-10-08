@@ -3,16 +3,15 @@
 const Home = () => {
   return (
     <section className="">
-<<<<<<< HEAD
       <h1 className="head_text text-center mb-3 dark:text-white"> Risk the Mines, Reap the Rewards! 🎮 
       <br className="max-md:hidden"/>
         <div className=" text-center mt-4  dark:text-white">
           Mines Rush
         </div>
       </h1>
-      <p className="text-center text-2xl font-normal py-5 ">
+      <p className="text-center text-2xl font-normal py-5 "/>
       Dive into Mine! Trust your instincts, take risks, outlast the competition, and claim victory. <br /> <span className="font-medium">Play hard, Think Fast & Claim Victory! 🏆</span>
-=======
+      
       <h1 className="head_text text-center mb-3">
         Risk the Mines, Reap the Rewards! 🎮
         <br className="max-md:hidden" />
@@ -24,7 +23,6 @@ const Home = () => {
         <span className="font-medium">
           Play hard, Think Fast & Claim Victory! 🏆
         </span>
->>>>>>> cf1bcd9e1a39d992cb4dd9090b814a295aad6037
       </p>
 
       <section className="relative my-24 py-4">
@@ -33,7 +31,7 @@ const Home = () => {
             What is Mines Rush?
           </h2>
           <p className="text-lg md:text-xl text-gray-800 leading-relaxed">
-           
+
 
             <span className="font-semibold text-green-700">Mines Rush</span>! is a thrilling and fast-paced competition where every move brings you closer to victory. Featuring sleek visuals, interactive gameplay, and immersive sound effects, it’s designed to keep you fully engaged. Sign up, dive into the action, and compete with players around the world as you race to climb the leaderboard and claim your win.
           </p>
