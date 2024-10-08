@@ -207,13 +207,5 @@
 }
 
 
-body.darker {
-  @apply bg-white text-black;
-}
-
-
-body.darker {
-  @apply bg-gray-900 text-white;
-}
 
 

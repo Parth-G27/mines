@@ -45,7 +45,7 @@ const Nav = () => {
         <p className="logo_text">Mines</p>
       </Link>
 
-      
+
 
       {/* {alert("providers : "+providers)} */}
 
@@ -149,35 +149,20 @@ const Nav = () => {
           </>
         )}
       </div>
+
       <button
         onClick={toggleDarkMode}
         className="bg-gray-600 p-2 rounded-full focus:outline-none"
         aria-label="Toggle Dark Mode"
       >
         {darkMode ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-yellow-500"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14.5a6.5 6.5 0 010-13v13z" />
-          </svg>
+          <span className="text-yellow-500 text-2xl">🌞</span> 
         ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-white"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 2a8 8 0 011.484 15.9c-.505.058-1.017.1-1.484.1a8 8 0 01-1.484-15.9c.505-.058 1.017-.1 1.484-.1zM10 18a7.988 7.988 0 01-4.905-1.778 8.008 8.008 0 01-.57-10.8 8.008 8.008 0 0110.8-.57A7.988 7.988 0 0110 18z"
-              clipRule="evenodd"
-            />
-          </svg>
+          <span className="text-white text-2xl">🌙</span> 
         )}
       </button>
+
+
     </nav>
   );
 };
